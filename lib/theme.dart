@@ -2,33 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class BL {
-  // Teks
-  static const ink = Color(0xFF0F172A);       // teks utama
-  static const inkMuted = Color(0xFF475569);  // teks redup
+  static const ink = Color(0xFF0F172A);
+  static const inkMuted = Color(0xFF475569);
 
-  // Warna aksen
-  static const sky600 = Color(0xFF0284C7);    // warna utama
+  static const sky600 = Color(0xFF0284C7);
   static const sky700 = Color(0xFF0369A1);
-  static const purple600 = Color(0xFF9333EA); // Arah 2 / frasa cepat
-  static const emerald600 = Color(0xFF059669); // WER bagus
-  static const amber600 = Color(0xFFD97706);   // WER sedang
-  static const rose600 = Color(0xFFE11D48);    // WER buruk / galat
+  static const purple600 = Color(0xFF9333EA);
+  static const emerald600 = Color(0xFF059669);
+  static const amber600 = Color(0xFFD97706);
+  static const rose600 = Color(0xFFE11D48);
 
-  // Latar gradient
   static const gradBase = Color(0xFFF8FAFC);
   static const gradBlue = Color(0xFF8EC5E8);
   static const gradYellow = Color(0xFFEFF0A8);
 
-  // Permukaan kaca
-  static const glass = Color(0xB3FFFFFF);       // putih 70%
+  static const glass = Color(0xB3FFFFFF);
   static const glassBorder = Color(0xCCFFFFFF);
 
-  // Layar OLED kacamata tetap hitam seperti aslinya
   static const oled = Color(0xFF030712);
   static const oledText = Color(0xFFF1F5F9);
 }
 
-/// Dekorasi kartu: dipakai nanti di semua layar supaya konsisten.
 BoxDecoration glassCard({double radius = 20}) => BoxDecoration(
       color: BL.glass,
       borderRadius: BorderRadius.circular(radius),
@@ -61,7 +55,7 @@ ThemeData buildTheme() {
       foregroundColor: BL.ink,
       elevation: 0,
       scrolledUnderElevation: 0,
-      systemOverlayStyle: SystemUiOverlayStyle.dark, // ikon status bar gelap
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     ),
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: BL.glass,
@@ -71,7 +65,6 @@ ThemeData buildTheme() {
   );
 }
 
-/// Latar gradient untuk seluruh aplikasi. Dipasang sekali di MaterialApp.builder.
 class GradientBackground extends StatelessWidget {
   const GradientBackground({super.key, required this.child});
   final Widget child;
@@ -82,7 +75,6 @@ class GradientBackground extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         const ColoredBox(color: BL.gradBase),
-        // kuning pucat di kanan atas
         const DecoratedBox(
           decoration: BoxDecoration(
             gradient: RadialGradient(
@@ -92,7 +84,6 @@ class GradientBackground extends StatelessWidget {
             ),
           ),
         ),
-        // biru langit di kiri atas
         const DecoratedBox(
           decoration: BoxDecoration(
             gradient: RadialGradient(
@@ -102,7 +93,6 @@ class GradientBackground extends StatelessWidget {
             ),
           ),
         ),
-        // memudar ke putih di bagian bawah
         const DecoratedBox(
           decoration: BoxDecoration(
             gradient: LinearGradient(
